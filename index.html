@@ -1,0 +1,53 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+    Write a function that takes one parameter (a whole number/integer) and checks if numbers from 1 to the given parameter (inclusive) are divisible by 2,3,5 while replacing with the appropriate words as specified below.
+    
+    * Numbers divisible by 2 are replaced by "yu"
+    
+    * Numbers divisible by 3 are replaced by "gi"
+    
+    * Numbers divisible by 5 are replaced by "oh"
+    
+    * Numbers are unchanged if not divsible by any of the above -->
+
+    <script>
+        function divibleBy235(num) {
+                if (typeof num !== "number") {
+                return `${num} is not a number.`;
+                }
+                let result = [];
+                for (i = 1; i <= num; i++) {
+                    if (i % 2 === 0 && i % 3 !== 0 && i % 5 !== 0) {
+                        result.push("yu");
+                    } else if (i % 2 !== 0 && i % 3 === 0 && i % 5 !== 0) {
+                        result.push("gi");
+                    } else if (i % 2 !== 0 && i % 3 !== 0 && i % 5 === 0) {
+                        result.push("oh");
+                    } else if (i % 2 === 0 && i % 3 === 0 && i % 5 !== 0) {
+                        result.push("yu-gi");
+                    } else if (i % 2 === 0 && i % 3 !== 0 && i % 5 === 0) {
+                        result.push("yu-oh");
+                    } else if (i % 2 !== 0 && i % 3 === 0 && i % 5 === 0) {
+                        result.push("gi-oh");
+                    } else if (i % 2 === 0 && i % 3 === 0 && i % 5 === 0) {
+                        result.push("yu-gi-oh");
+                    } else {
+                        result.push(i);
+                    }
+                }
+                console.log(result);
+                return result;
+            }
+            divibleBy235(100);
+            divibleBy235(10);
+    </script>
+</body>
+</html>  
